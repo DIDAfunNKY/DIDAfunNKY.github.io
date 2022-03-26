@@ -4,12 +4,52 @@
 <head>
     <title>Wenjie's MetaSpace</title>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="main.css">
+    <style>
+        #blocker {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        
+        #instructions {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: 14px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
     <div id="blocker">
-        <iframe src="https://139.9.188.253/webgl" name="my"  width="1920" height="1080" frameborder="1">
+        <div id="instructions">
+            <p style="font-size:36px">
+                Click to Enter the MetaSpace
+            </p>
+            <br>点击鼠标进入元宇宙（仅支持谷歌内核浏览器）
+            <p>
+                Move: WASD<br/> Jump: SPACE<br/> Look: MOUSE
+            </p>
+        </div>
     </div>
+
+    <!-- Import maps polyfill -->
+    <!-- Remove this when import maps will be widely supported -->
+    <script async src="./es/es-module-shims.js"></script>
+
+    <script type="importmap">
+        { "imports": { "three": "./build/three.module.js" } }
+    </script>
+
+    <script type="module" src="./main.js"></script>
 </body>
 
 </html>
